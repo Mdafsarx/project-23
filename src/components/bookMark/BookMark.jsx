@@ -1,19 +1,21 @@
 import SingleBookMark from "../singleBook/SingleBookMark";
 
-const BookMark = () => {
+const BookMark = ({bookMark,read}) => {
     return (
-        <div>
+        <div className="w-[35%]">
             
 <div className="bg-slate-300 p-5 border-blue-800 border-2 rounded-xl">
-    <h2 className="text-2xl font-bold text-[#6047EC]">Spent time on read : 177 min</h2>
+    <h2 className="text-2xl font-bold text-[#6047EC]">Spent time on read : <span>{read}</span> min</h2>
 
 </div>
 
 <div className="bg-slate-200 p-5 my-6 rounded-xl">
-    <h2 className="text-xl font-bold ">Bookmarked Blogs : 8</h2>
+    <h2 className="text-xl font-bold ">Bookmarked Blogs : <span>{bookMark.length}</span></h2>
 
 <div>
-    <SingleBookMark/>
+    {
+        bookMark.map((bookM,inx)=><SingleBookMark key={inx} bookTitle={bookM.title}/>)
+    }
 </div>
 
 
